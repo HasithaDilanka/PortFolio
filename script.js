@@ -126,22 +126,23 @@ slider.addEventListener('mouseleave', () => {
 });
 
 
-document.getElementById('send-email').addEventListener('click', function(e) {
-  e.preventDefault();
-  // encode subject/body if needed
-  const to = 'hasionyxia@gmail.com';
-  const subject = encodeURIComponent('Hello');
-  const body = encodeURIComponent('Hi there, I wanted to say...');
-  // using location.href usually invokes the OS handler (native mail app) when configured
-  location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+document.getElementById('send-email').addEventListener('click', function (e) {
+    e.preventDefault();
+    // encode subject/body if needed
+    const to = 'hasionyxia@gmail.com';
+    const subject = encodeURIComponent('Hello');
+    const body = encodeURIComponent('Hi there, I wanted to say...');
+    // using location.href usually invokes the OS handler (native mail app) when configured
+    location.href = `mailto:${to}?subject=${subject}&body=${body}`;
 });
 
 if (navigator.share) {
-  navigator.share({
-    title: 'Email',
-    text: 'Send an email to hasionyxia@gmail.com',
-    url: ''
-  }).catch(()=> { location.href = 'mailto:hasionyxia@gmail.com'; });
+    navigator.share({
+        title: 'Email',
+        text: 'Send an email to hasionyxia@gmail.com',
+        url: ''
+    }).catch(() => { location.href = 'mailto:hasionyxia@gmail.com'; });
 } else {
-  location.href = 'mailto:hasionyxia@gmail.com';
+    location.href = 'mailto:hasionyxia@gmail.com';
 }
+
